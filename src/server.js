@@ -3,6 +3,8 @@ const setConfig = require('./setConfig')
 const app = express()
 const auth = require('./auth')
 const usersCollection = require('./db/users')
+const login = require('./routers/login')
+const register = require('./routers/register')
 
 setConfig(app)
 
@@ -13,53 +15,9 @@ app.get('/logout', (req, res) => {
   req.redirect('/login')
 })
 
-app.get('/login', auth.isLogged(), (req, res) => {
-  res.send(usersCollection.find())
-})
+app.use('/', login)
 
-app.post('/login', (req, res) => {
-  
-  let username = req.body.username
-  let password = req.body.password
-
-  if (!username || !password) {
-    throw new Error('the data was not sent')
-  }
-
-  let user = usersCollection.findOne({username: username, password: password})
-
-  if (!user) {
-    return res.send('User not registered')
-  }
-
-  res.redirect('/profile')
-
-})
-
-app.post('/register', (req, res) => {
-
-  let username = req.body.username
-  let password = req.body.password
-
-  if (!username || !password) {
-    throw new Error('the data was not sent')
-  }
-
-  let user = usersCollection.findOne({username: username, password: password})
-
-  if (!user) {
-    user = usersCollection.insert({username: username, password: password})
-  }
-
-  req.session.user = user.username
-
-  res.redirect('/profile')
-
-})
-
-app.get('/register', auth.isLogged({successRedirect: '/profile'}), (req, res) => {
-  res.send('Do the account')
-})
+app.use('/', register)
 
 app.get('/profile', auth.shouldBeLogged({failureRedirect: '/login'}), (req, res) => {
   res.send('Hello you are logged')
