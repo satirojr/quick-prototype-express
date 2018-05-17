@@ -1,10 +1,10 @@
 const auth = require('../auth')
-const usersCollection = require('../db/users')
+const usersCollection = require('../db/db')
 const express = require('express')
 const router = express.Router()
 
 router.get('/register', auth.isLogged({successRedirect: '/profile'}), (req, res) => {
-    res.send('Do the account')
+    res.send('Do an account')
 })
 
 router.post('/register', (req, res) => {

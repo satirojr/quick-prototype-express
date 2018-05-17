@@ -4,7 +4,7 @@
   "description": "Aprendendo sessões em express.js",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon ./src/server.js --ignore src/db/shit.json",
+    "dev": "NODE_ENV=dev nodemon ./src/server.js --ignore src/db/shit.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lucas Sátiro",

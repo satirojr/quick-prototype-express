@@ -1,6 +1,6 @@
 const loki = require('lokijs')
 
-const db = new loki('db/database.json', {
+const db = new loki('/db/loki/database.json', {
   autosave:true
 })
 
@@ -15,5 +15,3 @@ const users = function users () {
 }
 
 module.exports = users()
-
-

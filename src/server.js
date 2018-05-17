@@ -2,7 +2,6 @@ const express = require('express')
 const setConfig = require('./setConfig')
 const app = express()
 const auth = require('./auth')
-const usersCollection = require('./db/users')
 const login = require('./routers/login')
 const register = require('./routers/register')
 

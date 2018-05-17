@@ -1,5 +1,5 @@
 const auth = require('../auth')
-const usersCollection = require('../db/users')
+const usersCollection = require('../db/db')
 const express = require('express')
 const router = express.Router()
 
@@ -21,6 +21,8 @@ router.post('/login', (req, res) => {
     if (!user) {
         return res.send('User not registered')
     }
+
+    req.session.user = user.username
 
     res.redirect('/profile')
 
