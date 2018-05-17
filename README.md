@@ -30,10 +30,14 @@ O modo prod utiliza o gerenciador de processo PM2 para roda em modo cluster e ut
 
 As rotas definidas para o método GET devem ser customizadas para retornarem o tipo de conteúdo desejado.
 
-GET `/login` - se o usuário já estiver logado ele será redirecionado para a rota `/profile` automaticamente.
+`GET /login` - se o usuário já estiver logado ele será redirecionado para a rota `/profile` automaticamente.
 
-POST `/login` - o server espera que sejam enviados dois parâmetros: `username` e `password` em formato JSON, envie com o cabeçalho `Content-Type: application/json`. Caso seja realizado com sucesso o servidor retorna um Cookie com o id da sessão do usuário que será mandado para as próximas requisições e redireciona para `/profile`.
+`POST /login` - o server espera que sejam enviados dois parâmetros: `username` e `password` em formato JSON, envie com o cabeçalho `Content-Type: application/json`. Caso seja realizado com sucesso o servidor retorna um Cookie com o id da sessão do usuário que será mandado para as próximas requisições e redireciona para `/profile`.
 
-GET `/register` - se o usuário já estiver logado ele será redirecionado para a rota `/profile` automaticamente.
+`GET /register` - se o usuário já estiver logado ele será redirecionado para a rota `/profile` automaticamente.
 
-POST `/register` - o server espera que sejam enviados dois parâmetros: `username` e `password` em formato JSON, envie com o cabeçalho `Content-Type: application/json`. O servidor retorna um Cookie com o id da sessão do usuário que será mandado para as próximas requisições. Se o cadastro for realizado com sucesso o usuário será redirecionado para `/profile`.
+`POST /register` - o server espera que sejam enviados dois parâmetros: `username` e `password` em formato JSON, envie com o cabeçalho `Content-Type: application/json`. O servidor retorna um Cookie com o id da sessão do usuário que será mandado para as próximas requisições. Se o cadastro for realizado com sucesso o usuário será redirecionado para `/profile`.
+
+`GET /profile` - se o usuário não estiver logado ele será redirecionado para `/login`.
+
+`GET /logout` - a sessão será destruida e o usuário será redirecionado para `/login`.
