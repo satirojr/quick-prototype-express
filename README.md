@@ -18,13 +18,13 @@ Você pode passar a porta em qual o servidor vai rodar, a porta default é a `30
 
 `PORT=8080 npm run dev`(exemplo)
 
-O projeto utiliza o Nodemon para fazer o restart do projeto em cada mudança de arquivo em modo dev.
+O projeto utiliza o Nodemon para fazer o restart do projeto em cada mudança de arquivo em modo desenvolvimento.
 
 Para rodar o projeto em modo produção utilize o seguinte comando:
 
 `npm run prod`
 
-O modo prod utiliza o gerenciador de processo PM2 para roda em modo cluster e utilizar todos os cores do SO.
+O modo produção utiliza o gerenciador de processo PM2 para roda em modo cluster e utilizar todos os cores do SO.
 
 ## Rotas
 
