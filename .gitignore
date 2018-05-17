@@ -1,0 +1,3 @@
+/node_modules
+session-store.db
+/src/db/database.json

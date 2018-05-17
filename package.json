@@ -1,0 +1,24 @@
+{
+  "name": "fucking_crazy",
+  "version": "1.0.0",
+  "description": "Aprendendo sessões em express.js",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon ./src/server.js --ignore src/db/shit.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Sátiro",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.18.3",
+    "connect-loki": "1.1.0",
+    "cors": "2.8.4",
+    "express": "4.16.3",
+    "express-session": "1.15.6",
+    "lokijs": "1.5.4",
+    "morgan": "1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "1.17.4"
+  }
+}
