@@ -10,7 +10,7 @@ e então execute o comando:
 
 `npm install`
 
-Para rodar o projeto em modo dev utilize o seguinte comando:
+Para rodar o projeto em modo desenvolvimento utilize o seguinte comando:
 
 `npm run dev`
 
@@ -20,7 +20,7 @@ Você pode passar a porta em qual o servidor vai rodar, a porta default é a `30
 
 O projeto utiliza o Nodemon para fazer o restart do projeto em cada mudança de arquivo em modo dev.
 
-Para rodar o projeto em modo prod utilize o seguinte comando:
+Para rodar o projeto em modo produção utilize o seguinte comando:
 
 `npm run prod`
 
