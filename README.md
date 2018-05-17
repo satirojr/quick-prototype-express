@@ -1,8 +1,10 @@
-# express-lokijs-projeto
+# quick-prototype-express
 
-## Projeto para cadastro e acesso de usuários feito em NodeJS utilizando a framework Express e o banco de dados em memória LokiJS
+## Esse é um projeto cujo propósito é servir de baseline para protótipos utilizando o framework Express
 
-### Esse é um projeto cujo propósito é servir de baseline para protótipos
+Para facilitar o desenvolvimento o projeto utiliza o banco de dados em memória Lokijs quando a variável NODE_ENV
+está definida como `dev`. Note que o comando abaixo `npm run dev` já define essa variável como `dev` então não é
+necessária fazer manualmente.
 
 Para o utilização do projeto faça o clone do repositório.
 
