@@ -2,29 +2,29 @@
 
 ## Esse é um projeto cujo propósito é servir de baseline para protótipos utilizando o framework Express
 
-Para facilitar o desenvolvimento o projeto utiliza o banco de dados em memória Lokijs quando a variável NODE_ENV
+Para facilitar o desenvolvimento o projeto utiliza o banco de dados em memória Lokijs quando a variável `NODE_ENV`
 está definida como `dev`. Note que o comando abaixo `npm run dev` já define essa variável como `dev` então não é
 necessário fazer manualmente.
 
 Para o utilização do projeto faça o clone do repositório e execute o comando:
 
-`npm install`
+  `npm install`
 
 Para rodar o projeto em modo desenvolvimento utilize o seguinte comando:
-
-`npm run dev`
+ 
+  `npm run dev`
 
 Você pode passar a porta em qual o servidor vai rodar, a porta default é a `3000`:
 
-`PORT=8080 npm run dev`(exemplo)
+  `PORT=8080 npm run dev`(exemplo)
 
 O projeto utiliza o Nodemon para fazer o restart do projeto em cada mudança de arquivo em modo desenvolvimento.
 
 Para rodar o projeto em modo produção utilize o seguinte comando:
 
-`npm run prod`
+  `npm run prod`
 
-O modo produção utiliza o gerenciador de processo PM2 para roda em modo cluster e utilizar todos os núcleos do sistema operacional.
+O modo produção utiliza o gerenciador de processo PM2 para roda em modo cluster e utilizar todos os núcleos do sistema operacional. A variável de ambiente `ǸODE_ENV` está definida como `prod`.
 
 ## Rotas
 
