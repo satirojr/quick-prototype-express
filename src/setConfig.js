@@ -19,7 +19,7 @@ const setConfig = function setConfig (app) {
     store: new store({
       ttl: 60000 * 60 * 24 // one day
     }),
-    secret: 'my secret',
+    secret: process.env.SECRET,
     saveUninitialized: true,
     resave: true,
     cookie: { 
