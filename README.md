@@ -28,7 +28,7 @@ O modo produção utiliza o gerenciador de processo PM2 para roda em modo cluste
 
 ## Rotas
 
-Note que você pode e deve customizar o que as rotas retornam, principalmente as que utilizam o método `GET`.
+Note que você pode e deve customizar o conteúdo que as rotas retornam, principalmente as que utilizam o método `GET`.
 
 `GET /login` - se o usuário já estiver logado ele será redirecionado para a rota `/profile` automaticamente.
 
