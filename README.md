@@ -24,7 +24,7 @@ Para rodar o projeto em modo produção utilize o seguinte comando:
 
 `npm run prod`
 
-O modo produção utiliza o gerenciador de processo PM2 para roda em modo cluster e utilizar todos os núcleos do sitema operacional.
+O modo produção utiliza o gerenciador de processo PM2 para roda em modo cluster e utilizar todos os núcleos do sistema operacional.
 
 ## Rotas
 
