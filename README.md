@@ -12,11 +12,9 @@ Para o utilização do projeto faça o clone do repositório e execute o comando
 
 ### DEVELOPMENT MODE
 
-Para rodar o projeto em modo desenvolvimento utilize o seguinte comando: `npm run dev`
+Para executar o projeto em modo desenvolvimento utilize o seguinte comando: `npm run dev`
 
-Você pode passar a porta em qual o servidor vai rodar, a porta default é a `3000`: 
-
-Por exemplo, `PORT=8080 npm run dev`.
+Você pode passar a porta em qual o servidor vai rodar, a porta default é a `3000`. Por exemplo:`PORT=8080 npm run dev`.
 
 O projeto utiliza a dependência do  _Nodemon_ para fazer o restart do projeto em cada mudança de arquivo em modo desenvolvimento.
 
@@ -24,7 +22,9 @@ O projeto utiliza a dependência do  _Nodemon_ para fazer o restart do projeto e
 
 Para rodar o projeto em modo produção utilize o seguinte comando: `npm run prod`
 
-O modo produção utiliza o gerenciador de processo _PM2_ para roda em modo cluster e utilizar todos os núcleos do sistema operacional. A variável de ambiente `ǸODE_ENV` está definida como `prod`.
+Você pode passar a porta em qual o servidor vai rodar, a porta default é a `3000`. Por exemplo:`PORT=8080 npm run prod`.
+
+O modo produção utiliza o gerenciador de processos _PM2_ para executar projeto em modo cluster e utilizar todos os núcleos do sistema operacional. A variável de ambiente `ǸODE_ENV` está definida como `prod`.
 
 ## Rotas
 
