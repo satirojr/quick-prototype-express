@@ -6,11 +6,11 @@ Para facilitar o desenvolvimento o projeto utiliza o banco de dados em memória 
 está definida como `dev`. Note que o comando abaixo `npm run dev` já define essa variável como `dev` então não é
 necessário fazer manualmente.
 
-### GET STARTED
+#### GET STARTED
 
 Para o utilização do projeto faça o clone do repositório e execute o comando: `npm install`
 
-### DEVELOPMENT MODE
+#### DEVELOPMENT MODE
 
 Para executar o projeto em modo desenvolvimento utilize o seguinte comando: `npm run dev`
 
@@ -18,7 +18,7 @@ Você pode passar a porta em qual o servidor vai rodar, a porta default é a `30
 
 O projeto utiliza a dependência do  _Nodemon_ para fazer o restart do projeto em cada mudança de arquivo em modo desenvolvimento.
 
-### PRODUCTION MODE
+#### PRODUCTION MODE
 
 Para rodar o projeto em modo produção utilize o seguinte comando: `npm run prod`
 
