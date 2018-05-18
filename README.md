@@ -6,7 +6,7 @@ Para facilitar o desenvolvimento o projeto utiliza o banco de dados em memória 
 está definida como `dev`. Note que o comando abaixo `npm run dev` já define essa variável como `dev` então não é
 necessário fazer manualmente.
 
-Para o utilização do projeto faça o clone do repositório e execute o comando:
+#### Para o utilização do projeto faça o clone do repositório e execute o comando:
 
   `npm install`
 
