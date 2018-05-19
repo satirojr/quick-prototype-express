@@ -4,6 +4,7 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/register', auth.isLogged({successRedirect: '/profile'}), (req, res) => {
+    console.log(process.pid)
     res.send('Do an account')
 })
 
@@ -16,10 +17,10 @@ router.post('/register', (req, res) => {
       throw new Error('the data was not sent')
     }
   
-    let user = usersCollection.findOne({username: username, password: password})
+    let user = usersCollection.find({username: username, password: password})
   
     if (!user) {
-      user = usersCollection.insert({username: username, password: password})
+      user = usersCollection.create({username: username, password: password})
     }
   
     req.session.user = user.username
