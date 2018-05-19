@@ -3,7 +3,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const session = require('express-session')
 const bodyParser = require('body-parser')
-const store = require('connect-loki')(session)
+const RedisStore = require('connect-redis')(session)
 
 const setConfig = function setConfig (app) {
   
@@ -16,7 +16,7 @@ const setConfig = function setConfig (app) {
   app.use(morgan('tiny'))
   
   app.use(session({
-    store: new store({
+    store: new RedisStore({
       ttl: 60000 * 60 * 24 // one day
     }),
     secret: process.env.SECRET,
