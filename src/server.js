@@ -11,7 +11,7 @@ app.set('port', process.env.PORT || 3000)
 
 app.get('/logout', (req, res) => {
   req.session.destroy()
-  req.redirect('/login')
+  res.redirect('/login')
 })
 
 app.use('/', login)
