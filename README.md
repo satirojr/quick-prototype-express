@@ -1,14 +1,20 @@
 # quick-prototype-express
 
-## Esse é um projeto cujo propósito é servir de baseline para protótipos utilizando o framework Express
-
-Para facilitar o desenvolvimento o projeto utiliza o banco de dados em memória Lokijs quando a variável `NODE_ENV`
-está definida como `dev`. Note que o comando abaixo `npm run dev` já define essa variável como `dev` então não é
-necessário fazer manualmente.
-
 #### GET STARTED
 
-Para o utilização do projeto faça o clone do repositório e execute o comando: `npm install`
+##### Pré-requisitos:
+
+1) Instale o banco de dados in-memory Redis. Ele é utilizado para gerenciamento de sessão da aplicação. Execute os comandos abaixo para a instalação.
+
+`wget http://download.redis.io/redis-stable.tar.gz`
+
+`tar xvzf redis-stable.tar.gz`
+
+`cd redis-stable`
+
+`make`
+
+2) Para o utilização do projeto faça o clone do repositório e execute o comando: `npm install`
 
 #### DEVELOPMENT MODE
 
