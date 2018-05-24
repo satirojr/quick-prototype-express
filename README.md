@@ -3,49 +3,72 @@
 #### API
 POST /register
 
-Envie: JSON. Format: { username: your-name-here, password: your-password-here }
+Envie: JSON. Format: 
+
+    { username: your-name-here, password: your-password-here }
 
 Resposta: JSON.
 
-Em caso de erro: { error: true }
+Em caso de erro: 
 
-Em sucesso: { error: false, token: 'your-token-here' }
+    { error: true }
+
+Em sucesso: 
+
+    { error: false, token: 'your-token-here' }
 
 POST /login
 
-Send: JSON. Format: { username: your-name-here, password: your-password-here }
+Send: JSON. Format: 
+
+    { username: your-name-here, password: your-password-here }
 
 Resposta: JSON.
 
-Em caso de erro: { error: true }
+Em caso de erro: 
 
-Em sucesso: { error: false, token: 'your-token-here' }
+    { error: true }
+
+Em sucesso: 
+      
+    { error: false, token: 'your-token-here' }
 
 POST /task
 
-Envie: JSON. { task: Object, token: 'your-token-here' }
+Envie: JSON. 
+     
+    { task: Object, token: 'your-token-here' }
 
 Resposta: JSON.
 
-Em caso de error: {error:true, message: 'Send the token!'}
+Em caso de error: 
 
-                  {error:true, message: 'Send the task!'}
-                  
-                  {error:true, message: 'Token inválido'}
-                  
-                  
-Em sucesso: {error: false, task: req.body.task}
+    {error:true, message: 'Send the token!'}
 
+    {error:true, message: 'Send the task!'}
+                  
+    {error:true, message: 'Token inválido'}
+                  
+                  
+Em sucesso: 
+
+    {error: false, task: req.body.task}
 
 POST /tasks
 
-Envie: JSON. { token: 'your-token-here' }
+Envie: JSON. 
+
+    { token: 'your-token-here' }
 
 Resposta: JSON.
 
-Em caso de erro: {error: true, message: 'token inválido!'}
+Em caso de erro: 
 
-Em caso de sucesso: [Objects]
+    {error: true, message: 'token inválido!'}
+
+Em caso de sucesso: 
+
+    [Objects]
 `
 
 ##### Pré-requisitos:
