@@ -8,6 +8,7 @@ Envie: JSON. Format: { username: your-name-here, password: your-password-here }
 Resposta: JSON.
 
 Em caso de erro: { error: true }
+
 Em sucesso: { error: false, token: 'your-token-here' }
 
 POST /login
@@ -17,6 +18,7 @@ Send: JSON. Format: { username: your-name-here, password: your-password-here }
 Resposta: JSON.
 
 Em caso de erro: { error: true }
+
 Em sucesso: { error: false, token: 'your-token-here' }
 
 POST /task
@@ -26,8 +28,11 @@ Envie: JSON. { task: Object, token: 'your-token-here' }
 Resposta: JSON.
 
 Em caso de error: {error:true, message: 'Send the token!'}
+
                   {error:true, message: 'Send the task!'}
+                  
                   {error:true, message: 'Token inválido'}
+                  
                   
 Em sucesso: {error: false, task: req.body.task}
 
