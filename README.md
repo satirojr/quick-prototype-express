@@ -5,7 +5,7 @@ POST /register
 
 Envie: JSON. Format: 
 
-    { username: your-name-here, password: your-password-here }
+    { username: your-name-here, password: 'your-password-here' }
 
 Resposta: JSON.
 
@@ -21,7 +21,7 @@ POST /login
 
 Send: JSON. Format: 
 
-    { username: your-name-here, password: your-password-here }
+    { username: your-name-here, password: 'your-password-here' }
 
 Resposta: JSON.
 
@@ -43,16 +43,16 @@ Resposta: JSON.
 
 Em caso de error: 
 
-    {error:true, message: 'Send the token!'}
+    { error:true, message: 'Send the token!' }
 
-    {error:true, message: 'Send the task!'}
+    { error:true, message: 'Send the task!' }
                   
-    {error:true, message: 'Token inválido'}
+    { error:true, message: 'Token inválido' }
                   
                   
 Em sucesso: 
 
-    {error: false, task: req.body.task}
+    { error: false, task: 'the added task' }
 
 POST /tasks
 
@@ -64,7 +64,7 @@ Resposta: JSON.
 
 Em caso de erro: 
 
-    {error: true, message: 'token inválido!'}
+    { error: true, message: 'token inválido!' }
 
 Em caso de sucesso: 
 
