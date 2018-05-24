@@ -76,11 +76,8 @@ Em caso de sucesso:
 1) Instale o banco de dados in-memory Redis. Ele é utilizado para gerenciamento de sessão da aplicação. Execute os comandos abaixo para a instalação.
 
         wget http://download.redis.io/redis-stable.tar.gz
-
         tar xvzf redis-stable.tar.gz
-
         cd redis-stable
-
         make
 
 2) Para o utilização do projeto faça o clone do repositório e execute o comando: `npm install`
