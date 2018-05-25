@@ -58,7 +58,7 @@ POST /tasks
 
 Envie: JSON. 
 
-    { token: 'your-token-here' }
+    { error: false, token: 'your-token-here' }
 
 Resposta: JSON.
 
