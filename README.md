@@ -1,99 +1,99 @@
-# quick-prototype-express
+
 
 #### API
-POST /register
-
-Envie: JSON. Format: 
-
-    { username: your-name-here, password: 'your-password-here' }
-
-Resposta: JSON.
-
-Em caso de erro: 
-
-    { error: true }
-
-Em sucesso: 
-
-    { error: false, token: 'your-token-here' }
-
-POST /login
+`POST /register`
 
 Send: JSON. Format: 
 
     { username: your-name-here, password: 'your-password-here' }
 
-Resposta: JSON.
+Answer: JSON.
 
-Em caso de erro: 
+Error: 
 
     { error: true }
 
-Em sucesso: 
+Success: 
+
+    { error: false, token: 'your-token-goes-here' }
+
+`POST /login`
+
+Send: JSON. Format: 
+
+    { username: your-name-here, password: 'your-password-goes-here' }
+
+Answer: JSON.
+
+Error: 
+
+    { error: true, message: 'User not found!' }
+
+Success: 
       
-    { error: false, token: 'your-token-here' }
+    { error: false, token: 'your-token-goes-here' }
 
-POST /task
+`POST /task`
 
-Envie: JSON. 
+Send: JSON. 
      
-    { task: Object, token: 'your-token-here' }
+    { task: Object, token: 'your-token-goes-here' }
 
-Resposta: JSON.
+Answer: JSON.
 
-Em caso de error: 
+Error: 
 
     { error:true, message: 'Send the token!' }
 
     { error:true, message: 'Send the task!' }
                   
-    { error:true, message: 'Token inválido' }
+    { error:true, message: 'Invalid token' }
                   
                   
-Em sucesso: 
+Success: 
 
-    { error: false, task: 'the added task' }
+    { error: false, task: 'The added task!' }
 
-POST /tasks
+`POST /tasks`
 
-Envie: JSON. 
+Send: JSON. 
 
-    { error: false, token: 'your-token-here' }
+    { error: false, token: 'your-token-goes-here' }
 
-Resposta: JSON.
+Answer: JSON.
 
-Em caso de erro: 
+Error: 
 
-    { error: true, message: 'token inválido!' }
+    { error: true, message: 'Invalid token!' }
 
-Em caso de sucesso: 
+Success: 
 
     [Objects]
 
 
-##### Pré-requisitos:
+#### Prerequisites:
 
-1) Instale o banco de dados in-memory Redis. Ele é utilizado para gerenciamento de sessão da aplicação. Execute os comandos abaixo para a instalação.
+1) Install the Redis database. It is used for save data and better performance of the application. Runn the commands below for installation:
 
         wget http://download.redis.io/redis-stable.tar.gz
         tar xvzf redis-stable.tar.gz
         cd redis-stable
         make
 
-2) Para o utilização do projeto faça o clone do repositório e execute o comando: `npm install`
+2) To use the project do the download of the repository and run the command: `npm install`
 
 #### DEVELOPMENT MODE
 
-Para executar o projeto em modo desenvolvimento utilize o seguinte comando: `npm run dev`
+To run the project you must use the following command: `npm run dev`
 
-Você pode passar a porta em qual o servidor vai rodar, a porta default é a `3000`. Por exemplo:`PORT=8080 npm run dev`.
+You can pass the port. The default port is `3000`. For example:`PORT=8080 npm run dev`.
 
-O projeto utiliza a dependência do  _Nodemon_ para fazer o restart do projeto em cada mudança de arquivo em modo desenvolvimento.
+The project uses the dependecy _Nodemon_ for doing the restart of the projeto at each change in files during the development.
 
 #### PRODUCTION MODE
 
-Para rodar o projeto em modo produção utilize o seguinte comando: `npm run prod`
+To run the project you must use the following command: `npm run prod`
 
-Você pode passar a porta em qual o servidor vai rodar, a porta default é a `3000`. Por exemplo:`PORT=8080 npm run prod`.
+You can pass the port in which the server will run, the default port is `3000`. For example:`PORT=8080 npm run prod`.
 
-O modo produção utiliza o gerenciador de processos _PM2_ para executar projeto em modo cluster e utilizar todos os núcleos do sistema operacional. A variável de ambiente `ǸODE_ENV` está definida como `prod`.
+The project uses the process manager _PM2_ for running the project in mode cluster and uses all the cores of SO. The environment variables `ǸODE_ENV` is set to `prod`.
