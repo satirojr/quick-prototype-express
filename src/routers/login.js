@@ -1,13 +1,9 @@
-const auth = require('../auth')
-const usersCollection = require('../db/db')
+const find = require('../db/redis/find')
+const jwt = require('jsonwebtoken')
 const express = require('express')
 const router = express.Router()
-
-router.get('/login', auth.isLogged(), (req, res) => {
-    res.send('You are not logged')
-})
   
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
 
     let username = req.body.username
     let password = req.body.password
@@ -16,15 +12,19 @@ router.post('/login', (req, res) => {
         throw new Error('the data was not sent')
     }
 
-    let user = usersCollection.findOne({username: username, password: password})
+    var user
 
-    if (!user) {
-        return res.send('User not registered')
+    try {
+        user = await find(username)
+    } catch (e) {
+        return res.send({ error: true, message: e.message })
     }
 
-    req.session.user = user.username
+    const token = jwt.sign({
+        username: user.username
+    }, process.env.SECRETJWT, { expiresIn: '24h' })
 
-    res.redirect('/profile')
+    res.send({ token: token, error: false })
 
 })
 

@@ -1,32 +1,26 @@
 const auth = require('../auth')
-const usersCollection = require('../db/db')
+const create = require('../db/redis/create')
+const validate = require('./validate')
 const express = require('express')
+const jwt = require('jsonwebtoken')
 const router = express.Router()
 
-router.get('/register', auth.isLogged({successRedirect: '/profile'}), (req, res) => {
-    console.log(process.pid)
-    res.send('Do an account')
-})
+router.post('/register', validate, async (req, res) => {
 
-router.post('/register', (req, res) => {
+  let username = req.body.username
+  let password = req.body.password
 
-    let username = req.body.username
-    let password = req.body.password
-  
-    if (!username || !password) {
-      throw new Error('the data was not sent')
-    }
-  
-    let user = usersCollection.find({username: username, password: password})
-  
-    if (!user) {
-      user = usersCollection.create({username: username, password: password})
-    }
-  
-    req.session.user = user.username
-  
-    res.redirect('/profile')
-  
+  try {
+    await create(username, { username: username, password: password })
+  } catch (e) {
+    return res.send({ error: true, message: e.message })
+  }
+  const token = jwt.sign({
+    username: username
+  },process.env.SECRETJWT, { expiresIn: '24h' })
+
+  return res.send({ error: false, token: token })
+
 })
   
 module.exports = router
