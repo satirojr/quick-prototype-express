@@ -2,10 +2,10 @@ const usersCollection = require('../db/redis/find')
 var jwt = require('jsonwebtoken')
 const express = require('express')
 const router = express.Router()
-const idTaks = require('../db/redis/idtask')
+const addTask = require('../db/redis/addTask')
 const connection = require('../db/redis/connection')
   
-router.post('/task', async (req, res) => {
+router.post('/task', (req, res) => {
 
   if (req.body.token == 'underfined') {
     res.send({error:true, message: 'Send the token!'})
@@ -19,11 +19,10 @@ router.post('/task', async (req, res) => {
 
   jwt.verify(token, process.env.SECRETJWT, async (err, user) => {
     if (err) {
-      res.send({error:true, message: 'Token inválido'})
+      res.send({error:true, message: 'Invalid token!'})
       return 
     }
-    id = await idTaks(user.username)
-    await connection.hset(`${user.username}:tasks`, `task:${id}`, req.body.task)
+    addTask(user.username, req.body.task)
   })
 
   res.send({error: false, task: req.body.task})

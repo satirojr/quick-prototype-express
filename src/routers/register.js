@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs')
 const auth = require('../auth')
 const create = require('../db/redis/create')
 const validate = require('./validate')
@@ -9,9 +10,10 @@ router.post('/register', validate, async (req, res) => {
 
   let username = req.body.username
   let password = req.body.password
-
+  let salt = bcrypt.genSaltSync(10);
+  let hash = bcrypt.hashSync(password, salt);
   try {
-    await create(username, { username: username, password: password })
+    await create(username, { username: username, password: hash })
   } catch (e) {
     return res.send({ error: true, message: e.message })
   }

@@ -1,6 +1,7 @@
 const find = require('../db/redis/find')
 const jwt = require('jsonwebtoken')
 const express = require('express')
+const bcrypt = require('bcryptjs')
 const router = express.Router()
   
 router.post('/login', async (req, res) => {
@@ -12,12 +13,15 @@ router.post('/login', async (req, res) => {
         throw new Error('the data was not sent')
     }
 
-    var user
+    let user
 
     try {
         user = await find(username)
+        if (!bcrypt.compareSync(password, user.password)) {
+            throw new Error('Incorrect password!')
+        }
     } catch (e) {
-        return res.send({ error: true, message: e.message })
+        return res.send({ error: true, message: 'User not found!' })
     }
 
     const token = jwt.sign({

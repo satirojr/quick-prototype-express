@@ -1,9 +1,9 @@
-const usersCollection = require('../db/redis/find')
+const getTasks = require('../db/redis/find')
 var jwt = require('jsonwebtoken')
 const express = require('express')
 const router = express.Router()
   
-router.post('/tasks', (req, res) => {
+router.post('/tasks', async (req, res) => {
 
   if (req.body.token == 'underfined') {
     res.send({error:true})
@@ -11,17 +11,25 @@ router.post('/tasks', (req, res) => {
   
   const token = req.body.token
 
-  jwt.verify(token, process.env.SECRETJWT, function(err, user) {
-    usersCollection(`${user.username}:tasks`).then((tasks) => {
-      userTasks = []
-      Object.keys(tasks).forEach(function(element) {
-        userTasks.push(tasks[element])
-      })
-      res.send(userTasks)
-    }).catch(() => {
-      res.send({error: true, message: 'token inválido!'})
-    })
-  })
+  let user
+  let tasks
+  let taskList = []
+
+  try {
+    user = await jwt.verify(token, process.env.SECRETJWT)
+  } catch (e) {
+    res.send({error: true, message: e.message})
+  }
+
+  try {
+    tasks = await getTasks(`${user.username}:tasks`)
+    Object.keys(tasks).forEach(function(task) {
+        taskList.push(JSON.parse(tasks[task]))
+    })    
+    return res.send(taskList)
+  }catch (e) {
+    res.send({error: true, message: 'The user has no task!'})
+  }
 
 })
 
