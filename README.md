@@ -27,7 +27,7 @@ Answer: JSON.
 
 Error: 
 
-    { error: true }
+    { error: true, message: 'User not found!' }
 
 Success: 
       
