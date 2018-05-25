@@ -1,6 +1,6 @@
 #### Prerequisites:
 
-1) Install the Redis database. It is used for save data and better performance of the application. Runn the commands below for installation:
+1) Install the Redis database. It is used for save data and better performance of the application. Run the commands below for installation:
 
         wget http://download.redis.io/redis-stable.tar.gz
         tar xvzf redis-stable.tar.gz
