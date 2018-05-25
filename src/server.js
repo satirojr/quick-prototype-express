@@ -3,27 +3,27 @@ const setConfig = require('./setConfig')
 const app = express()
 const auth = require('./auth')
 const login = require('./routers/login')
+const tasks = require('./routers/tasks')
+const task = require('./routers/task')
 const register = require('./routers/register')
 
 setConfig(app)
 
 app.set('port', process.env.PORT || 3000)
 
-app.get('/logout', (req, res) => {
-  req.session.destroy()
-  res.redirect('/login')
-})
+app.use(express.static(__dirname + '/dist'))
 
 app.use('/', login)
 
 app.use('/', register)
 
-app.get('/profile', auth.shouldBeLogged({failureRedirect: '/login'}), (req, res) => {
-  res.send('Hello you are logged')
-})
+app.use('/', tasks)
+
+app.use('/', task)
+
 
 app.use((req, res, next) => {
-  res.sendStatus(404)
+  res.send({statusCode:404, error: true})
 })
 
 app.listen(app.get('port'), () => {

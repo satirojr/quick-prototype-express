@@ -38,6 +38,5 @@ const isLogged = function isLogged (options) {
 
 }
 
-
 module.exports.isLogged = isLogged
 module.exports.shouldBeLogged = shouldBeLogged
