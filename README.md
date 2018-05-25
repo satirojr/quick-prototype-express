@@ -15,13 +15,13 @@ Em caso de erro:
 
 Em sucesso: 
 
-    { error: false, token: 'your-token-here' }
+    { error: false, token: 'your-token-goes-here' }
 
 POST /login
 
 Send: JSON. Format: 
 
-    { username: your-name-here, password: 'your-password-here' }
+    { username: your-name-here, password: 'your-password-goes-here' }
 
 Resposta: JSON.
 
@@ -31,13 +31,13 @@ Em caso de erro:
 
 Em sucesso: 
       
-    { error: false, token: 'your-token-here' }
+    { error: false, token: 'your-token-goes-here' }
 
 POST /task
 
 Envie: JSON. 
      
-    { task: Object, token: 'your-token-here' }
+    { task: Object, token: 'your-token-goes-here' }
 
 Resposta: JSON.
 
@@ -47,24 +47,24 @@ Em caso de error:
 
     { error:true, message: 'Send the task!' }
                   
-    { error:true, message: 'Token inválido' }
+    { error:true, message: 'Invalid token' }
                   
                   
 Em sucesso: 
 
-    { error: false, task: 'the added task' }
+    { error: false, task: 'The added task!' }
 
 POST /tasks
 
 Envie: JSON. 
 
-    { error: false, token: 'your-token-here' }
+    { error: false, token: 'your-token-goes-here' }
 
 Resposta: JSON.
 
 Em caso de erro: 
 
-    { error: true, message: 'token inválido!' }
+    { error: true, message: 'Invalid token!' }
 
 Em caso de sucesso: 
 
