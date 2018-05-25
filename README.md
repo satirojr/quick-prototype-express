@@ -1,19 +1,19 @@
 # quick-prototype-express
 
 #### API
-POST /register
+`POST /register`
 
-Envie: JSON. Format: 
+Send: JSON. Format: 
 
     { username: your-name-here, password: 'your-password-here' }
 
-Resposta: JSON.
+Answer: JSON.
 
-Em caso de erro: 
+Error: 
 
     { error: true }
 
-Em sucesso: 
+Success: 
 
     { error: false, token: 'your-token-goes-here' }
 
@@ -23,25 +23,25 @@ Send: JSON. Format:
 
     { username: your-name-here, password: 'your-password-goes-here' }
 
-Resposta: JSON.
+Answer: JSON.
 
-Em caso de erro: 
+Error: 
 
     { error: true }
 
-Em sucesso: 
+Success: 
       
     { error: false, token: 'your-token-goes-here' }
 
 POST /task
 
-Envie: JSON. 
+Send: JSON. 
      
     { task: Object, token: 'your-token-goes-here' }
 
-Resposta: JSON.
+Answer: JSON.
 
-Em caso de error: 
+Error: 
 
     { error:true, message: 'Send the token!' }
 
@@ -50,23 +50,23 @@ Em caso de error:
     { error:true, message: 'Invalid token' }
                   
                   
-Em sucesso: 
+Success: 
 
     { error: false, task: 'The added task!' }
 
 POST /tasks
 
-Envie: JSON. 
+Send: JSON. 
 
     { error: false, token: 'your-token-goes-here' }
 
-Resposta: JSON.
+Answer: JSON.
 
-Em caso de erro: 
+Error: 
 
     { error: true, message: 'Invalid token!' }
 
-Em caso de sucesso: 
+Success: 
 
     [Objects]
 
