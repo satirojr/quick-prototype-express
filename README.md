@@ -17,7 +17,7 @@ Success:
 
     { error: false, token: 'your-token-goes-here' }
 
-POST /login
+`POST /login`
 
 Send: JSON. Format: 
 
@@ -33,7 +33,7 @@ Success:
       
     { error: false, token: 'your-token-goes-here' }
 
-POST /task
+`POST /task`
 
 Send: JSON. 
      
@@ -54,7 +54,7 @@ Success:
 
     { error: false, task: 'The added task!' }
 
-POST /tasks
+`POST /tasks`
 
 Send: JSON. 
 
