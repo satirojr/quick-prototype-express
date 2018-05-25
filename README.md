@@ -1,4 +1,4 @@
-# quick-prototype-express
+
 
 #### API
 `POST /register`
@@ -84,16 +84,16 @@ Success:
 
 #### DEVELOPMENT MODE
 
-Para executar o projeto em modo desenvolvimento utilize o seguinte comando: `npm run dev`
+To run the project you must use the following command: `npm run dev`
 
-Você pode passar a porta em qual o servidor vai rodar, a porta default é a `3000`. Por exemplo:`PORT=8080 npm run dev`.
+You can pass the port. The default port is `3000`. For example:`PORT=8080 npm run dev`.
 
-O projeto utiliza a dependência do  _Nodemon_ para fazer o restart do projeto em cada mudança de arquivo em modo desenvolvimento.
+The project uses the dependecy _Nodemon_ for doing the restart of the projeto at each change in files during the development.
 
 #### PRODUCTION MODE
 
-Para rodar o projeto em modo produção utilize o seguinte comando: `npm run prod`
+To run the project you must use the following command: `npm run prod`
 
-Você pode passar a porta em qual o servidor vai rodar, a porta default é a `3000`. Por exemplo:`PORT=8080 npm run prod`.
+You can pass the port in which the server will run, the default port is `3000`. For example:`PORT=8080 npm run prod`.
 
-O modo produção utiliza o gerenciador de processos _PM2_ para executar projeto em modo cluster e utilizar todos os núcleos do sistema operacional. A variável de ambiente `ǸODE_ENV` está definida como `prod`.
+The project uses the process manager _PM2_ for running the project in mode cluster and uses all the cores of SO. The environment variables `ǸODE_ENV` is set to `prod`.
