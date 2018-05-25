@@ -8,7 +8,7 @@ const client = redis.createClient({
 })
 
 client.on("error", function (err) {
-    console.log("Error " + err);
+    console.log(err);
     process.exit(-1)
 })
 

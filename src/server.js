@@ -3,8 +3,9 @@ const setConfig = require('./setConfig')
 const app = express()
 const auth = require('./auth')
 const login = require('./routers/login')
-const tasks = require('./routers/tasks')
-const task = require('./routers/task')
+const getTasks = require('./routers/getTasks')
+const addTask = require('./routers/addTask')
+const removeTask = require('./routers/removeTask')
 const register = require('./routers/register')
 
 setConfig(app)
@@ -17,9 +18,11 @@ app.use('/', login)
 
 app.use('/', register)
 
-app.use('/', tasks)
+app.use('/', getTasks)
 
-app.use('/', task)
+app.use('/', addTask)
+
+app.use('/', removeTask)
 
 
 app.use((req, res, next) => {

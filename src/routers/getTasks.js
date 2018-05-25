@@ -1,12 +1,12 @@
 const getTasks = require('../db/redis/find')
-var jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 const express = require('express')
 const router = express.Router()
   
 router.post('/tasks', async (req, res) => {
 
-  if (req.body.token == 'underfined') {
-    res.send({error:true})
+  if (req.body.token == undefined) {
+    res.send({error:true, message: 'Missing token!'})
   }
   
   const token = req.body.token

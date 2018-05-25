@@ -7,11 +7,11 @@ const connection = require('../db/redis/connection')
   
 router.post('/task', (req, res) => {
 
-  if (req.body.token == 'underfined') {
+  if (req.body.token === undefined) {
     res.send({error:true, message: 'Send the token!'})
   }
 
-  if (req.body.task == 'underfined') {
+  if (req.body.task === undefined) {
     res.send({error:true, message: 'Send the task!'})
   }
 
@@ -22,7 +22,7 @@ router.post('/task', (req, res) => {
       res.send({error:true, message: 'Invalid token!'})
       return 
     }
-    addTask(user.username, req.body.task)
+    await addTask(user.username, req.body.task)
   })
 
   res.send({error: false, task: req.body.task})

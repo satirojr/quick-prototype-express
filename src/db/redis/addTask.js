@@ -1,8 +1,8 @@
 const connection = require('./connection')
-const idTaks = require('./idtask')
+const getIDTask = require('./getIDTask')
 
 const addTask = async function addTask (username, task) {
-  id = await idTaks(username)
+  id = await getIDTask(username)
   await connection.hset(`${username}:tasks`, `task:${id}`, task)
 }
 
