@@ -71,16 +71,16 @@ Success:
     [Objects]
 
 
-##### Pré-requisitos:
+#### Prerequisites:
 
-1) Instale o banco de dados in-memory Redis. Ele é utilizado para gerenciamento de sessão da aplicação. Execute os comandos abaixo para a instalação.
+1) Install the Redis database. It is used for save data and better performance of the application. Runn the commands below for installation:
 
         wget http://download.redis.io/redis-stable.tar.gz
         tar xvzf redis-stable.tar.gz
         cd redis-stable
         make
 
-2) Para o utilização do projeto faça o clone do repositório e execute o comando: `npm install`
+2) To use the project do the download of the repository and run the command: `npm install`
 
 #### DEVELOPMENT MODE
 
