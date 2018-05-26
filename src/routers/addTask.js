@@ -3,29 +3,39 @@ var jwt = require('jsonwebtoken')
 const express = require('express')
 const router = express.Router()
 const addTask = require('../db/redis/addTask')
+const getIDTask = require('../db/redis/getIDTask')
 const connection = require('../db/redis/connection')
   
 router.post('/task', (req, res) => {
 
   if (req.body.token === undefined) {
-    res.send({error:true, message: 'Send the token!'})
+    return res.send({error:true, message: 'Send the token!'})
   }
 
   if (req.body.task === undefined) {
-    res.send({error:true, message: 'Send the task!'})
+    return res.send({error:true, message: 'Send the task!'})
   }
-
+  
   const token = req.body.token
+  let task 
 
   jwt.verify(token, process.env.SECRETJWT, async (err, user) => {
     if (err) {
-      res.send({error:true, message: 'Invalid token!'})
-      return 
+      return res.send({error:true, message: 'Invalid token!'})
     }
-    await addTask(user.username, req.body.task)
+    let id = await getIDTask(user.username)
+    id = parseInt(id)
+    try {
+      task = JSON.parse(req.body.task)
+      task.id = id
+      task = JSON.stringify(task)
+    } catch (e) {
+      return res.send({error: true, message:'Invalid JSON!'})
+    }
+    await addTask(user.username, id, task)
+    res.send({error: false, task: task})
   })
-
-  res.send({error: false, task: req.body.task})
+  
 })
 
 module.exports = router

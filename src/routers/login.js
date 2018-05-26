@@ -8,9 +8,13 @@ router.post('/login', async (req, res) => {
 
     let username = req.body.username
     let password = req.body.password
-
-    if (!username || !password) {
-        throw new Error('the data was not sent')
+    try {
+        if (!username || !password) {
+            throw new Error('The data was not sent')
+            return
+        }
+    } catch (e) {
+        return res.send({error:true, message: e.message})
     }
 
     let user

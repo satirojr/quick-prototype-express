@@ -26,7 +26,7 @@ app.use('/', removeTask)
 
 
 app.use((req, res, next) => {
-  res.send({statusCode:404, error: true})
+  res.send({statusCode: 404, error: true})
 })
 
 app.listen(app.get('port'), () => {

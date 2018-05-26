@@ -3,14 +3,14 @@ const jwt = require('jsonwebtoken')
 const express = require('express')
 const router = express.Router()
 
-router.delete('/task', (req, res) => {
+router.post('/remove', (req, res) => {
   
   if (req.body.token == undefined) {
-    res.send({error:true, message: 'Send the token!'})
+    return res.send({error:true, message: 'Send the token!'})
   }
 
   if (req.body.id == undefined) {
-    res.send({error:true, message: 'Send the task id!'})
+    return res.send({error:true, message: 'Send the task id!'})
   }
 
   const token = req.body.token
