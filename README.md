@@ -1,3 +1,5 @@
+<img src=https://david-dm.org/lucassantosjr/quick-prototype-express.svg>
+
 #### Prerequisites:
 
 1) Install the Redis database. It is used for save data and better performance of the application. Run the commands below for installation:
