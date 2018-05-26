@@ -4,7 +4,6 @@
   "description": "Aprendendo sessões em express.js",
   "main": "./src/server.js",
   "scripts": {
-    "build": "NODE_ENV=dev SECRET=mysecret SECRETJWT=mysecret  nodemon ./src/server.js",
     "prod": "NODE_ENV=prod SECRET=mysecret SECRETJWT=mysecret pm2 start ./src/server.js -i max",
     "dev": "NODE_ENV=dev SECRET=mysecret SECRETJWT=mysecret  nodemon ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
