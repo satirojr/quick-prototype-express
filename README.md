@@ -45,7 +45,7 @@ Success:
 
     { error: false, token: 'your-token-goes-here' }
 
-`POST /login` - Loginn a user
+`POST /login` - Login a user
 
 Send: JSON. Format: 
 
