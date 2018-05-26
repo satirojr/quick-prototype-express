@@ -2,7 +2,7 @@
   "name": "fucking_crazy",
   "version": "1.0.0",
   "description": "Aprendendo sessões em express.js",
-  "main": "server.js",
+  "main": "./src/server.js",
   "scripts": {
     "prod": "NODE_ENV=prod SECRET=mysecret SECRETJWT=mysecret pm2 start ./src/server.js -i max",
     "dev": "NODE_ENV=dev SECRET=mysecret SECRETJWT=mysecret  nodemon ./src/server.js",
