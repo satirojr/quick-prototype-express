@@ -91,7 +91,9 @@ Send: JSON.
 Erro:
 
     { error:true, message: 'Send the task id!' }
+    
     { error:true, message: 'Send the token!' }
+    
     { error: true, message: 'Invalid token!' }
     
 Success: 
