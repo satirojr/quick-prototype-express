@@ -2,13 +2,16 @@ const connection = require('./connection')
 
 const getIDTask = async function getIDTask (username) {
 
-  let id = await connection.get(`${username}:task:id`)
+  const key = `${username}:task:id`
+
+  let id = await connection.get(key)
 
   if ( id === null ) {
-    await connection.set(`${username}:task:id`, 0)
-    id = await connection.get(`${username}:task:id`)
+    await connection.set(key, 1)
+    id = await connection.get(key)
   }
-  await connection.incr(`${username}:task:id`)
+  
+  await connection.incr(key)
   return id;
 
 }

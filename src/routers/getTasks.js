@@ -1,10 +1,11 @@
 const getTasks = require('../db/redis/find')
+const verifyToken = require('../middleware/verifyToken')
 const jwt = require('jsonwebtoken')
 const express = require('express')
 const router = express.Router()
-  
-router.post('/tasks', async (req, res) => {
 
+router.post('/tasks', verifyToken, async (req, res) => {
+  
   if (req.body.token == undefined) {
     res.send({error:true, message: 'Missing token!'})
   }
@@ -26,7 +27,8 @@ router.post('/tasks', async (req, res) => {
     Object.keys(tasks).forEach(function(task) {
         taskList.push(JSON.parse(tasks[task]))
     })    
-    return res.send(taskList)
+    res.send(taskList)
+    return
   }catch (e) {
     res.send({error: true, message: 'The user has no task!'})
   }

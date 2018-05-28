@@ -1,10 +1,10 @@
 const express = require('express')
 const setConfig = require('./setConfig')
 const app = express()
-const auth = require('./auth')
 const login = require('./routers/login')
 const getTasks = require('./routers/getTasks')
 const addTask = require('./routers/addTask')
+const updateTask = require('./routers/updateTask')
 const removeTask = require('./routers/removeTask')
 const register = require('./routers/register')
 
@@ -22,11 +22,12 @@ app.use('/', getTasks)
 
 app.use('/', addTask)
 
+app.use('/', updateTask)
+
 app.use('/', removeTask)
 
-
 app.use((req, res, next) => {
-  res.send({statusCode: 404, error: true})
+  res.send({statusCode: 404, error: true, message: 'This route does not exist!'})
 })
 
 app.listen(app.get('port'), () => {

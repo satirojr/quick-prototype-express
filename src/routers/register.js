@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs')
-const auth = require('../auth')
 const create = require('../db/redis/create')
-const validate = require('./validate')
+const validate = require('../middleware/validate')
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const router = express.Router()
@@ -11,7 +10,8 @@ router.post('/register', validate, async (req, res) => {
   let username = req.body.username
   let password = req.body.password
   let salt = bcrypt.genSaltSync(10);
-  let hash = bcrypt.hashSync(password, salt);
+  let hash = bcrypt.hashSync(password, salt)
+  
   try {
     await create(username, { username: username, password: hash })
   } catch (e) {
