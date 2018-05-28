@@ -28,7 +28,8 @@ You can pass the port in which the server will run, the default port is `3000`. 
 The project uses the process manager _PM2_ for running the project in mode cluster and uses all the cores of SO. The environment variables `ǸODE_ENV` is set to `prod`.
 
 #### API
-`POST /register`
+
+`POST /register` - Register a user
 
 Send: JSON. Format: 
 
@@ -44,7 +45,7 @@ Success:
 
     { error: false, token: 'your-token-goes-here' }
 
-`POST /login`
+`POST /login` - Login a user
 
 Send: JSON. Format: 
 
@@ -60,7 +61,7 @@ Success:
       
     { error: false, token: 'your-token-goes-here' }
 
-`POST /task`
+`POST /task` - Add a task
 
 Send: JSON. 
      
@@ -81,6 +82,25 @@ Success:
 
     { error: false, task: 'The added task!' }
 
+`POST /remove` - Delete a task
+
+Send: JSON.
+
+    { token: 'your-token-goes-here', id: int }
+
+Erro:
+
+    { error:true, message: 'Send the task id!' }
+    
+    { error:true, message: 'Send the token!' }
+    
+    { error: true, message: 'Invalid token!' }
+    
+Success: 
+
+    { error: false, id: int }
+    
+    
 `POST /tasks`
 
 Send: JSON. 
